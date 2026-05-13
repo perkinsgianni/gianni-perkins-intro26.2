@@ -20,12 +20,13 @@ h2 {
 }
 
 section {
-    padding: 20px;
+    padding: 10px;
     margin-bottom: 10px;
 }
 
 #experience ul {
-    display: flexbox;
+    display: flex;
+    flex-direction: column;
     list-style-type: none;
     padding: 0;
 }
@@ -40,8 +41,10 @@ section {
     margin-bottom: 15px;
 }
 
-#connect li {
+#connect ul {
     display: flex;
+    list-style-type: none;
+    padding: 0;
 }
 
 
