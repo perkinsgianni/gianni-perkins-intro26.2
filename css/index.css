@@ -31,6 +31,10 @@ section {
     padding: 0;
 }
 
+/* #experience li {
+    display: flex;
+} */
+
 .date {
     float: right;
 }
@@ -44,7 +48,9 @@ section {
 #connect ul {
     display: flex;
     list-style-type: none;
-    padding: 0;
+    padding: 5px;
+    font-size: 30px;
+    color: dimgray;
 }
 
 
