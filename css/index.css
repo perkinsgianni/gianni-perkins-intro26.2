@@ -1,0 +1,28 @@
+body {
+    background-color: antiquewhite;
+    color: dimgrey;
+    font-family: monospace;
+    /* font-size: 15px; */
+    margin: auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: black;
+}
+
+h2 {
+    margin-bottom: 30px;
+    font-size: 18px;
+    font-weight: 200px;
+    color: black;
+}
+
+section {
+    padding: 20px;
+    margin-bottom: 10px;
+}
+
+
+/* Padding is inside the element, margin is outside */
