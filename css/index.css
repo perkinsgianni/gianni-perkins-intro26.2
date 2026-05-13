@@ -15,13 +15,17 @@ h1 {
 h2 {
     margin-bottom: 30px;
     font-size: 18px;
-    font-weight: 200px;
+    font-weight: dark;
     color: black;
 }
 
 section {
     padding: 20px;
     margin-bottom: 10px;
+}
+
+li {
+    display: flex;
 }
 
 
