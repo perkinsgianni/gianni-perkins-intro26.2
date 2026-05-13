@@ -24,28 +24,23 @@ section {
     margin-bottom: 10px;
 }
 
-#experience li {
-    display: flex;
+#experience ul {
+    display: flexbox;
+    list-style-type: none;
+    padding: 0;
 }
 
-#first_date {
-    padding-left: 49.5%;
+.date {
+    float: right;
 }
 
-#second_date {
-    padding-left: 31%;
-}
-
-#third_date {
-    padding-left: 36%;
-}
-
-#company {
+.company {
     font-weight: bold;
-    margin-bottom: 20px;
+    display: block;
+    margin-bottom: 15px;
 }
 
-#connect ul {
+#connect li {
     display: flex;
 }
 
