@@ -2,7 +2,7 @@ body {
     background-color: antiquewhite;
     color: dimgrey;
     font-family: monospace;
-    /* font-size: 15px; */
+    font-size: 14px;
     margin: auto;
     padding: 20px;
 }
@@ -15,7 +15,7 @@ h1 {
 h2 {
     margin-bottom: 30px;
     font-size: 18px;
-    font-weight: dark;
+    font-weight: bold;
     color: black;
 }
 
@@ -24,7 +24,28 @@ section {
     margin-bottom: 10px;
 }
 
-li {
+#experience li {
+    display: flex;
+}
+
+#first_date {
+    padding-left: 49.5%;
+}
+
+#second_date {
+    padding-left: 31%;
+}
+
+#third_date {
+    padding-left: 36%;
+}
+
+#company {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#connect ul {
     display: flex;
 }
 
