@@ -31,18 +31,19 @@ section {
     padding: 0;
 }
 
-/* #experience li {
+#experience li {
     display: flex;
-} */
+    flex-direction: row;
+}
 
 .date {
-    float: right;
+    margin-left: auto;
 }
 
 .company {
     font-weight: bold;
     display: block;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 #connect ul {
@@ -52,6 +53,3 @@ section {
     font-size: 30px;
     color: dimgray;
 }
-
-
-/* Padding is inside the element, margin is outside */
