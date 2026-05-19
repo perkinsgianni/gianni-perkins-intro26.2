@@ -1,0 +1,66 @@
+body {
+    background-color: antiquewhite;
+    color: dimgrey;
+    font-family: monospace;
+    font-size: 14.5px;
+    margin: auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: black;
+}
+
+h2 {
+    margin-bottom: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+}
+
+section {
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+#experience ul {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    padding: 0;
+}
+
+/* #experience li {
+    display: flex;
+} */
+
+.date {
+    float: right;
+}
+
+.company {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 15px;
+}
+
+#skills ul {
+    display: grid;
+    grid-template-columns: 500px 500px;
+    list-style-type: none;
+    padding: 0;
+    color: dimgray;
+}
+
+#connect ul {
+    display: flex;
+    list-style-type: none;
+    padding: 5px;
+    font-size: 30px;
+    color: dimgray;
+}
+
+footer {
+    text-align: center;
+}
