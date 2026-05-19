@@ -3,10 +3,10 @@ let thisYear = today.getFullYear();
 
 /////////////////////////////
 
-let footer = document.querySelector("footer");
+let footer = document.createElement("footer");
 let copyright = document.createElement("p");
-copyright.innerHTML = `&copy; ${thisYear} Gianni Perkins`
-footer.appendChild(copyright);
+copyright.innerHTML = `&copy; ${thisYear} Gianni Perkins`;
+document.body.appendChild(footer).appendChild(copyright);
 
 /////////////////////////////
 
