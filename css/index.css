@@ -2,7 +2,7 @@ body {
     background-color: antiquewhite;
     color: dimgrey;
     font-family: monospace;
-    font-size: 14px;
+    font-size: 14.5px;
     margin: auto;
     padding: 20px;
 }
@@ -31,19 +31,22 @@ section {
     padding: 0;
 }
 
-#experience li {
-    display: flex;
-    flex-direction: row;
-}
-
 .date {
-    margin-left: auto;
+    float: right;
 }
 
 .company {
     font-weight: bold;
     display: block;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+}
+
+#skills ul {
+    display: grid;
+    grid-template-columns: 500px 500px;
+    list-style-type: none;
+    padding: 0;
+    color: dimgray;
 }
 
 #connect ul {
@@ -52,4 +55,8 @@ section {
     padding: 5px;
     font-size: 30px;
     color: dimgray;
+}
+
+footer {
+    text-align: center;
 }
