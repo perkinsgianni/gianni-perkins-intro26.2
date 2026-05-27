@@ -31,6 +31,10 @@ section {
     padding: 0;
 }
 
+/* #experience li {
+    display: flex;
+} */
+
 .date {
     float: right;
 }
@@ -55,6 +59,24 @@ section {
     padding: 5px;
     font-size: 30px;
     color: dimgray;
+}
+
+#message, #messages  {
+    text-align: center;
+}
+
+input {
+    height: 20px;
+    width: 15%;
+}
+
+textarea {
+    height: 75px;
+    width: 20%;
+}
+
+#messages button {
+    margin-left: 10px;
 }
 
 footer {

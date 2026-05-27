@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,6 +15,7 @@
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
         <a href="#connect">Connect</a>
+        <a href="#message">Message</a>
     </nav>
 
     <h1>Gianni Perkins</h1>
@@ -87,6 +89,30 @@
                 <a class="fa fa-github" target="_blank" href="https://github.com/perkinsgianni"></a>
                 <a class="fa fa-linkedin-square" target="_blank" href="https://linkedin.com/in/perkinsgianni"></a>
             </li>
+        </ul>
+    </section>
+    <section id="message">
+        <h2>Leave a Message</h2>
+        <form name="leave_message" id="leave_message">
+            <label for="name">
+                Name:
+                <input type="text" name="usersName" required="true"><br><br>
+            </label>
+            <label for="email">
+                Email:
+                <input type="text" name="usersEmail" required="true"><br><br>
+            </label>
+            <label for="message">
+                Message:
+                <textarea name="usersMessage" required="true"></textarea><br><br>
+            </label>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+    <section id="messages">
+        <h2>Messages</h2>
+        <ul>
+
         </ul>
     </section>
     <script src="js/index.js"></script>
