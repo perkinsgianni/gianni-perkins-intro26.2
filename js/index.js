@@ -49,30 +49,33 @@ messageForm.addEventListener("submit", function (event) {
 
 /////////////////////////////
 
+let projectSection = document.getElementById("projects");
+let projectList = projectSection.querySelector("ul");
+
 fetch('https://api.github.com/users/perkinsgianni/repos')
     .then(response => {
         if (!response.ok) {
-        throw new Error('Request failed');
+            throw new Error('Request failed');
         }
-    return response.json(); // parse response as JSON
+        return response.json();
     })
     .then(repositories => {
-        console.log(repositories); // assign response to repositories, log
-
-        let projectSection = document.getElementById("projects");
-        let projectList = projectSection.querySelector("ul");
+        console.log(repositories);
 
         for (let i = 0; i < repositories.length; i++) {
-            // let project = document.createElement("li");
-            // project.textContent = repositories[i].name;
-            // projectList.appendChild(project);
-
-            let project = document.createElement("a");
-            project.href = `https://github.com/perkinsgianni/${repositories[i].name}`;
+            let project = document.createElement("li");
             project.textContent = repositories[i].name;
             projectList.appendChild(project);
+
+            // let project = document.createElement("a");
+            // project.href = `https://github.com/perkinsgianni/${repositories[i].name}`;
+            // project.textContent = repositories[i].name;
+            // projectList.appendChild(project);
         }
     })
     .catch(error => {
-        console.error('An error occurred:', error);
+        // console.error('An error occurred:', error);
+        let errorMessage = document.createElement("p");
+        errorMessage.innerHTML = `${error}`;
+        projectList.appendChild(errorMessage);
     })
