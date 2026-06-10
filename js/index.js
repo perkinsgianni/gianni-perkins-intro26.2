@@ -1,10 +1,26 @@
-let today = new Date();
-let thisYear = today.getFullYear();
+let button = document.querySelector(".menu-hamburger");
+let menuContent = document.querySelector(".menu-content");
 
-let footer = document.createElement("footer");
-let copyright = document.createElement("p");
-copyright.innerHTML = `&copy; ${thisYear} Gianni Perkins`;
-document.body.appendChild(footer).appendChild(copyright);
+button.addEventListener("click", function (event) {
+    menuContent.classList.toggle("showMenu");
+    console.log(menuContent);
+})
+
+document.addEventListener("click", function (event) {
+    if (!event.target.closest('.menu-hamburger')) {
+        let menuContent = document.getElementsByClassName("menu-content");
+        console.log(menuContent);
+
+        for (let i = 0; i < menuContent.length; i++) {
+            let menuOptions = menuContent[i];
+            console.log(menuOptions);
+
+            if (menuOptions.classList.contains("showMenu")) {
+                menuOptions.classList.remove("showMenu");
+            }
+        }
+    }
+})
 
 /////////////////////////////
 
@@ -20,7 +36,36 @@ for (let i = 0; i < skills.length; i++) {
 
 /////////////////////////////
 
-let messageForm = document.querySelector('form[name="leave_message"]');
+let projectSection = document.getElementById("projects");
+let projectList = projectSection.querySelector("ul");
+
+fetch('https://api.github.com/users/perkinsgianni/repos')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Request failed");
+        }
+        return response.json();
+    })
+    .then(repositories => {
+        console.log(repositories);
+
+        for (let i = 0; i < repositories.length; i++) {
+            let project = document.createElement("a");
+            project.href = `https://github.com/perkinsgianni/${repositories[i].name}`;
+            project.target = "_blank"
+            project.textContent = repositories[i].name;
+            projectList.appendChild(project);
+        }
+    })
+    .catch(error => {
+        let errorMessage = document.createElement("p");
+        errorMessage.innerHTML = `${error}`;
+        projectList.appendChild(errorMessage);
+    })
+
+/////////////////////////////
+
+let messageForm = document.querySelector("form[name='leave_message']");
 messageForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
@@ -35,8 +80,9 @@ messageForm.addEventListener("submit", function (event) {
     newMessage.innerHTML = `<a href="mailto:${email}">${name}</a>: <span>${message}</span>`
 
     let removeButton = document.createElement("button");
-    removeButton.innerText = "remove";
+    removeButton.innerText = "Remove";
     removeButton.type = "button";
+
     removeButton.addEventListener("click", function (event) {
         let entry = removeButton.parentNode;
         entry.remove();
@@ -49,33 +95,10 @@ messageForm.addEventListener("submit", function (event) {
 
 /////////////////////////////
 
-let projectSection = document.getElementById("projects");
-let projectList = projectSection.querySelector("ul");
+let today = new Date();
+let thisYear = today.getFullYear();
 
-fetch('https://api.github.com/users/perkinsgianni/repos')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Request failed');
-        }
-        return response.json();
-    })
-    .then(repositories => {
-        console.log(repositories);
-
-        for (let i = 0; i < repositories.length; i++) {
-            let project = document.createElement("li");
-            project.textContent = repositories[i].name;
-            projectList.appendChild(project);
-
-            // let project = document.createElement("a");
-            // project.href = `https://github.com/perkinsgianni/${repositories[i].name}`;
-            // project.textContent = repositories[i].name;
-            // projectList.appendChild(project);
-        }
-    })
-    .catch(error => {
-        // console.error('An error occurred:', error);
-        let errorMessage = document.createElement("p");
-        errorMessage.innerHTML = `${error}`;
-        projectList.appendChild(errorMessage);
-    })
+let footer = document.createElement("footer");
+let copyright = document.createElement("p");
+copyright.innerHTML = `&copy; ${thisYear} Gianni Perkins`;
+document.body.appendChild(footer).appendChild(copyright);
