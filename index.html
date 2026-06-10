@@ -3,120 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name='description' content='A brief description of your portfolio or background'>
-    <title>Gianni's Portfolio</title>
+    <meta name='description' content='Portfolio of Gianni Perkins, a NJ-based software engineer specializing in full-stack web development and ServiceNow.'>
+    <title>Gianni Perkins - Portfolio</title>
     <link rel="stylesheet" href="css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <nav>
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#connect">Connect</a>
-        <a href="#message">Message</a>
+        <div class="menu">
+             <button class="menu-hamburger">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </button>
+            <ul class="menu-content">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="openapi.html">Featured page: Open API</a></li>
+                <li><a href="#connect">Connect</a></li>
+                <li><a href="#message">Message</a></li>
+            </ul>
+        </div>
     </nav>
 
-    <h1>Gianni Perkins</h1>
+    <section id="home">
+        <h1>Gianni Perkins</h1>
+    </section>
 
     <section id="about">
-        <h2>About Me</h2>
-        <p>I'm currently interviewing for a new, full-time ServiceNow position and re-learning how to code with Code the Dream.</p>
+        <div class="about-text">
+            <h2>About Me</h2>
+            <p>I'm currently interviewing for a new, full-time ServiceNow position and will be learning data engineering with Code the Dream in the summer.</p>
+        </div>
     </section>
 
     <section id="experience">
-        <h2>Experience</h2>
-        <ul>
-            <li>
-                <span class="role">
-                    ServiceNow Developer
-                </span>
-                <span class="date">
-                    Aug 2025 - Present
-                </span>
-            </li>
-            <li>
-                <span class="company">
-                    Freelance
-                </span>
-            </li>
-            <li>
-                <span class="role">
-                    ServiceNow Consultant & Developer
-                </span>
-                <span class="date">
-                    Jun 2022 - Jul 2025
-                </span>
-            </li>
-            <li>
-                <span class="company">
-                    CDW
-                </span>
+        <div class="experience-text">
+            <h2>Experience</h2>
+            <ul>
+                <li>
+                    <span class="role">
+                        ServiceNow Developer
+                    </span>
+                    <span class="date">
+                        Aug 2025 - Present
+                    </span>
                 </li>
                 <li>
-                <span class="role">
-                    Apprentice Software Developer
-                </span>
-                <span class="date">
-                    Mar 2022 - Jun 2022
-                </span>
-            </li>
-            <li>
-                <span class="company">
-                    Creating Coding Careers
-                </span>
-            </li>
-        </ul>
+                    <span class="company">
+                        Freelance
+                    </span>
+                </li>
+                <li>
+                    <span class="role">
+                        ServiceNow Consultant & Developer
+                    </span>
+                    <span class="date">
+                        Jun 2022 - Jul 2025
+                    </span>
+                </li>
+                <li>
+                    <span class="company">
+                        CDW
+                    </span>
+                    </li>
+                    <li>
+                    <span class="role">
+                        Apprentice Software Developer
+                    </span>
+                    <span class="date">
+                        Mar 2022 - Jun 2022
+                    </span>
+                </li>
+                <li>
+                    <span class="company">
+                        Creating Coding Careers
+                    </span>
+                </li>
+            </ul>
+        </div>
     </section>
 
     <section id="skills">
-        <h2>Skills</h2>
-        <ul></ul>
+        <div class="skills-text">
+            <h2>Skills</h2>
+            <ul></ul>
+        </div>
     </section>
 
     <section id="projects">
-        <h2>Projects</h2>
-        <ul>
-        </ul>
+        <div class="projects-text">
+            <h2>Projects</h2>
+            <ul></ul>
+        </div>
     </section>
 
     <section id="connect">
-        <h2>Connect</h2>
-        <ul>
-            <li>
-                <a href="https://github.com/perkinsgianni" title="github icon" class="fa fa-github" target="_blank"></a>
-                <a href="https://linkedin.com/in/perkinsgianni" title="linkedin icon" class="fa fa-linkedin-square" target="_blank"></a>
-            </li>
-        </ul>
+        <div class="connect-text">
+            <h2>Connect</h2>
+            <ul>
+                <li>
+                    <a href="https://github.com/perkinsgianni" title="github icon" class="fa fa-github" target="_blank"></a>
+                    <a href="https://linkedin.com/in/perkinsgianni" title="linkedin icon" class="fa fa-linkedin-square" target="_blank"></a>
+                </li>
+            </ul>
+        </div>
     </section>
 
-    <div class="container">
+    <div class="message-container">
         <section id="message">
-            <h2>Leave a Message</h2>
-            <form name="leave_message" id="leave_message">
-                <label for="name">
-                    Name:
-                    <input type="text" id="name" name="usersName" required="true"><br><br>
-                </label>
-                <label for="email">
-                    Email:
-                    <input type="email" id="email" name="usersEmail" required="true"><br><br>
-                </label>
-                <label for="user_message">
-                    Message:
-                    <textarea name="usersMessage" id="user_message" required="true"></textarea><br><br>
-                </label>
-                <button type="submit">Submit</button>
-            </form>
+            <div class="message-text">
+                <h2>Leave a Message</h2>
+                <form name="leave_message" id="leave_message">
+                    <label for="name">
+                        Name:
+                        <input type="text" id="name" name="usersName" required="true"><br><br>
+                    </label>
+                    <label for="email">
+                        Email:
+                        <input type="email" id="email" name="usersEmail" required="true"><br><br>
+                    </label>
+                    <label for="user_message">
+                        Message:
+                        <textarea name="usersMessage" id="user_message" required="true"></textarea><br><br>
+                    </label>
+                    <div class="submit-button">
+                        <button type="submit">Submit</button> 
+                    </div>
+                </form>
+            </div>
         </section>
 
         <section id="messages">
-            <h2>Messages</h2>
-            <ul>
-            </ul>
+            <div class="messages-text">
+                <h2>Messages</h2>
+                <ul></ul>
+            </div>
         </section>
     </div>
-
+    
     <script src="js/index.js"></script>
 </body>
