@@ -1,31 +1,64 @@
+let button = document.querySelector(".menu-hamburger");
+let menuContent = document.querySelector(".menu-content");
+
+button.addEventListener("click", function (event) {
+    menuContent.classList.toggle("showMenu");
+    console.log(menuContent);
+})
+
+document.addEventListener("click", function (event) {
+    if (!event.target.closest('.menu-hamburger')) {
+        let menuContent = document.getElementsByClassName("menu-content");
+        console.log(menuContent);
+
+        for (let i = 0; i < menuContent.length; i++) {
+            let menuOptions = menuContent[i];
+            console.log(menuOptions);
+
+            if (menuOptions.classList.contains("showMenu")) {
+                menuOptions.classList.remove("showMenu");
+            }
+        }
+    }
+})
+
+/////////////////////////////
+
 const api_url = 'https://api.artic.edu/api/v1/';
 const img_api_url = 'https://www.artic.edu/iiif/2/';
 
 /////////////////////////////
 
 let artSection = document.getElementById("art");
+let artTitle = document.getElementById('art-title');
 let artList = artSection.querySelector("ul");
 
 let artButton = document.createElement("button");
 artButton.innerText = "Art";
 artButton.type = "button";
 
-artSection.appendChild(artButton);
+artTitle.appendChild(artButton);
 
 artButton.addEventListener("click", async function (event) {
   event.preventDefault();
 
   artList.innerHTML = "";
 
-  let page = Math.floor(Math.random() * 9398) + 1;
+  let page = Math.floor(Math.random() * 32765) + 1;
   // console.log(page);
 
   await getMuseumArtwork(page);
 });
 
 async function getMuseumArtwork(page) {
+  let loadingIndicator = document.createElement("p");
+  loadingIndicator.textContent = "Loading artworks...";
+  artSection.appendChild(loadingIndicator);
+
   try {
-    const artworks_response = await fetch(`${api_url}artworks?limit=5&page=${page}`);
+    artButton.disabled = true;
+
+    const artworks_response = await fetch(`${api_url}artworks?limit=4&page=${page}`);
     // console.log(artworks_response);
     
     if (!artworks_response.ok) {
@@ -36,14 +69,35 @@ async function getMuseumArtwork(page) {
     // console.log(artworks);
 
     artworks.data.forEach(artwork => {
-      console.log(artwork);
-      if (!artwork.image_id) return;
+      // console.log(artwork);
 
       let artInfo = document.createElement("li");
 
-      let artworkPhoto = document.createElement("img");
-      artworkPhoto.src = `${img_api_url}${artwork.image_id}/full/843,/0/default.jpg`;
-      artInfo.appendChild(artworkPhoto);
+      if (artwork && artwork.image_id) {
+        let artworkPhoto = document.createElement("img");
+        artworkPhoto.src = `${img_api_url}${artwork.image_id}/full/843,/0/default.jpg`;
+        artworkPhoto.alt = artwork.title;
+        artworkPhoto.style.height = "55vh";
+        artInfo.appendChild(artworkPhoto);
+
+        artworkPhoto.onerror = function() {
+          let placeholder = document.createElement("div");
+          placeholder.textContent = "No image available.";
+          placeholder.className = "placeholder";
+          placeholder.style.height = "50.5vh"; 
+          artInfo.append(placeholder);
+          
+          if (artworkPhoto.parentNode) {
+            artworkPhoto.parentNode.replaceChild(placeholder, artworkPhoto);
+          }
+        };
+      } else {
+          let placeholder = document.createElement("div");
+          placeholder.textContent = "No image available.";
+          placeholder.className = "placeholder";
+          placeholder.style.height = "50.5vh"; 
+          artInfo.append(placeholder);
+      } 
       
       let artworkTitle = document.createElement("a");
       artworkTitle.textContent = artwork.title;
@@ -72,6 +126,10 @@ async function getMuseumArtwork(page) {
 
   } catch (error) {
       console.error('An error occurred:', error);
+
+  } finally {
+    artButton.disabled = false;
+    loadingIndicator.remove();
   }
 }
 
@@ -83,33 +141,40 @@ clearArtButton.addEventListener("click", function (event) {
   artList.innerHTML = "";
 })
 
-artSection.appendChild(clearArtButton);
+artTitle.appendChild(clearArtButton);
 
 /////////////////////////////
 
 let exhibitionsSection = document.getElementById("exhibitions");
+let exhibitionsTitle = document.getElementById('exhibitions-title');
 let exhibitionsList = exhibitionsSection.querySelector("ul");
 
 let exhibitionsButton = document.createElement("button");
 exhibitionsButton.innerText = "Exhibitions";
 exhibitionsButton.type = "button";
 
-exhibitionsSection.appendChild(exhibitionsButton);
+exhibitionsTitle.appendChild(exhibitionsButton);
 
 exhibitionsButton.addEventListener("click", async function (event) {
   event.preventDefault();
 
   exhibitionsList.innerHTML = "";
 
-  let page = Math.floor(Math.random() * 3255) + 1;
+  let page = Math.floor(Math.random() * 1625) + 1;
   // console.log(page);
 
   await getMuseumExhibitions(page);
 });
 
 async function getMuseumExhibitions(page) {
+  let loadingIndicator = document.createElement("p");
+  loadingIndicator.textContent = "Loading exhibitions...";
+  exhibitionsSection.appendChild(loadingIndicator);
+
   try {
-    const exhibitions_response = await fetch(`${api_url}exhibitions?limit=5&page=${page}`);
+    exhibitionsButton.disabled = true;
+
+    const exhibitions_response = await fetch(`${api_url}exhibitions?limit=4&page=${page}`);
     // console.log(exhibitions_response);
     
     if (!exhibitions_response.ok) {
@@ -120,7 +185,7 @@ async function getMuseumExhibitions(page) {
     // console.log(exhibitions);
 
     exhibitions.data.forEach(exhibition => {
-      console.log(exhibition);
+      // console.log(exhibition);
 
       let exhibitionsInfo = document.createElement("li");
       
@@ -153,28 +218,19 @@ async function getMuseumExhibitions(page) {
 
   } catch (error) {
     console.error('An error occurred:', error);
+
+  } finally {
+    exhibitionsButton.disabled = false;
+    loadingIndicator.remove();
   }
 }
 
-let clearexhibitionsButton = document.createElement("button");
-clearexhibitionsButton.innerText = "Clear";
-clearexhibitionsButton.type = "button";
+let clearExhibitionsButton = document.createElement("button");
+clearExhibitionsButton.innerText = "Clear";
+clearExhibitionsButton.type = "button";
 
-clearexhibitionsButton.addEventListener("click", function (event) {
+clearExhibitionsButton.addEventListener("click", function (event) {
   exhibitionsList.innerHTML = "";
 })
 
-exhibitionsSection.appendChild(clearexhibitionsButton);
-
-// getMuseumExhibitions();
-// getMuseumExhibitions();
-
-/////////////////////////////
-
-let today = new Date();
-let thisYear = today.getFullYear();
-
-let footer = document.createElement("footer");
-let copyright = document.createElement("p");
-copyright.innerHTML = `&copy; ${thisYear} Gianni Perkins`;
-document.body.appendChild(footer).appendChild(copyright);
+exhibitionsTitle.appendChild(clearExhibitionsButton);

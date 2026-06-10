@@ -1,0 +1,124 @@
+html {
+    height: 100%;
+    box-sizing: border-box;
+}
+
+body {
+    color: black;
+    background-color: #F6F5F1;
+    font-family: "Inter", sans-serif;
+    font-size: 15px;
+    overflow-x: hidden;
+}
+
+section {
+    width: 100%;
+    overflow-y: auto;
+}
+
+.menu {
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.menu-hamburger {
+    background-color: inherit;
+    position: fixed;
+    margin-right: -12px;
+    border: none;
+    cursor: pointer;
+}
+
+.bar {
+    background-color: black;
+    height: 2.5px;
+    width: 35px;
+    margin: 5px;
+}
+ 
+.menu-content {
+    display: none;
+}
+
+.menu-content.showMenu {
+    display: flex;
+    position: fixed;
+    margin: 0 50px;
+    padding: 6px;
+    gap: 20px;  
+    list-style: none; 
+}
+
+a:link {
+    color: #7D6F46;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:visited {
+    color: #7D6F46;
+}
+
+#art h2 {
+    margin-top: 5px;
+}
+
+#exhibitions h2 {
+    margin-top: 15px;
+}
+
+button {
+    transform: translateY(-4px);
+    cursor: pointer;
+}
+
+button:first-child {
+    margin-left: 10px;
+}
+
+#art {
+    height: 65vh;
+}
+
+#exhibitions {
+    height: 32vh;
+}
+
+#art ul, #exhibitions ul { 
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 0;
+    list-style: none;
+}
+
+#art ul li img {
+    max-height: 50vh;
+    width: 100%; 
+    aspect-ratio: 3 / 4;
+    object-fit: cover ; 
+}
+
+.placeholder {
+    height: 70.5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#art ul li a, #exhibitions ul li a {
+    display: block;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    max-width: 40ch;
+}
+
+p {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    text-align: center;
+}
